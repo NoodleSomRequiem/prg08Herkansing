@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 
+<!--//liever geen beschrijvingen bij html maar dit is best wel groot dus here we go!-->
+
+
 <style>
+    /*tooltip is voor de hover functie, zodat er een beschrijving bij de waarden komen*/
     .tooltip {
         position: relative;
         display: inline-block;
-        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+        border-bottom: 1px dotted black;
     }
 
     /* Tooltip text */
@@ -17,13 +21,11 @@
         text-align: center;
         padding: 5px 0;
         border-radius: 6px;
-
-        /* Position the tooltip text - see examples below! */
         position: absolute;
         z-index: 1;
     }
 
-    /* Show the tooltip text when you mouse over the tooltip container */
+    /*tooltip hover*/
     .tooltip:hover .tooltiptext {
         visibility: visible;
     }
@@ -72,7 +74,9 @@ section{
     <link rel="icon" href="img/cow.jpg"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    //via een vriend gekregen, handig voor minder css-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <script defer src="app.js" type="module"></script>
 </head>
 
@@ -81,7 +85,7 @@ section{
 </nav>
 
 <body>
-
+<!--// word hier weer opgeroepen voor de header, zodat dat er netjes uit ziet, heb zelf nog wel wat dingen aangepast-->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home"></header>
 
 <div id="grader">
@@ -97,7 +101,7 @@ section{
                 fill in the correct details of your milk in the open fields below!
                 <br/>
                 <br/>
-
+<!--//zoals je kunt zien word hier die tooltip weer opgeroepen, nu staat er een beschrijving in-->
         <label for="fat" class="tooltip">Fat:
                     <span class="tooltiptext">this is the texture, in other words, how fat your milk is. Check if your milk is fatter than usual.</span></label>
         <select id="fat" name="fat">

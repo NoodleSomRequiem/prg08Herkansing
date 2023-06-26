@@ -6,12 +6,14 @@ const gradeBtn = document.querySelector("#grade");
 
 gradeBtn.addEventListener("click", () => loadSavedModel() && console.log("Loading model.."));
 
+//saved model word geladen uit de json
 function loadSavedModel() {
     fetch("./model/model.json")
         .then((response) => response.json())
         .then((model) => modelLoaded(model))
 }
 
+//model is geladen
 function modelLoaded(model) {
     let decisionTree = new DecisionTree(model)
 
@@ -20,13 +22,13 @@ function modelLoaded(model) {
     let turbidityValue = document.getElementById('turbidity').value;
     console.log(phValue, fatValue, turbidityValue)
 
-    // MAKE PREDICTION
+    //prediction word gemaakt hier
     let data = { pH: phValue, Fat: fatValue, Turbidity: turbidityValue }
     console.log(data)
     let prediction = decisionTree.predict(data)
     console.log("Predicted: " + prediction)
 
-    // POSSIBLE MESSAGES
+    //text displayed na ingevoerde waarden.
     if (prediction == "low") {
         display.innerText = `Your milk is not good anymore.`
     }

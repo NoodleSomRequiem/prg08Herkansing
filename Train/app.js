@@ -1,10 +1,11 @@
 import {DecisionTree} from "./libraries/decisiontree.js"
 import {VegaTree} from "./libraries/vegatree.js"
-
+//roept de data op en ignored onnodige waarden in de data
 const csvFile = "data/milk.csv"
 const trainingLabel = "Grade"
 const ignored = ["Grade", "Temperature","Taste","Odor", "Colour"]
 
+//de prediction results worden aangemaakt
 const display = document.getElementById("display");
 
 const lowLow = document.getElementById("lowLow");
@@ -17,6 +18,7 @@ const highLow = document.getElementById("highLow");
 const highMed = document.getElementById("highMed");
 const highHigh = document.getElementById("highHigh");
 
+//data wordt geladen
 function loadData() {
     Papa.parse(csvFile, {
         download: true,
@@ -26,6 +28,7 @@ function loadData() {
     })
 }
 
+//model word getrained met de data, accuracy word voorspeld
 function trainModel(data) {
     data.sort(() => (Math.random() - 0.5));
     let trainData = data.slice(0, Math.floor(data.length * 0.8));
@@ -39,6 +42,7 @@ function trainModel(data) {
 
     let visual = new VegaTree('#view', 800, 400, decisionTree.toJSON())
 
+    //de predicticted hoeveelheid word aangegeven
     let amountCorrect = 0;
     let predictedHighButLow = 0;
     let predictedHighButMed = 0;
@@ -52,6 +56,7 @@ function trainModel(data) {
     let predictedLowButMed = 0;
     let predictedLowButHigh = 0;
 
+    //data wordt getest
     for (let row of testData) {
         let prediction = decisionTree.predict(row)
         if (prediction == row.Grade) {
@@ -75,7 +80,7 @@ function trainModel(data) {
         if (prediction == "high" && row.Grade == "high") {
             predictedHighButHigh++}
     }
-
+//de predicted hoeveelheid worden laten zien
     let accuracy = amountCorrect / testData.length
     console.log(accuracy)
     display.innerText = `Accuracy: ${accuracy}`;
