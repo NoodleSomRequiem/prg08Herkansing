@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <a class=button href="../index.html">Go back to grader</a>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script defer src="app.js" type="module"></script>
+    <title>MILK!</title>
+</head>
+<body>
+<div>
+    <h3>Milk-tree</h3>
+</div>
+<div id="view"></div>
+<div id="display"></div>
+<div>
+    <h4>Confusion Matrix</h4>
+    <table id="confusion">
+        <tr>
+            <td></td>
+            <td>Predicted LOW</td>
+            <td>Predicted MED</td>
+            <td>Predicted HIGH</td>
+        </tr>
+        <tr>
+            <td>LOW</td>
+            <td id="lowLow"></td>
+            <td id="medLow"></td>
+            <td id="highLow"></td>
+        </tr>
+        <tr>
+            <td>MED</td>
+            <td id="lowMed"></td>
+            <td id="medMed"></td>
+            <td id="highMed"></td>
+        </tr>
+        <tr>
+            <td>HIGH</td>
+            <td id="lowHigh"></td>
+            <td id="medHigh"></td>
+            <td id="highHigh"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
